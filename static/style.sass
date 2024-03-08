@@ -12,9 +12,9 @@
     font-weight: 500
     color: #e2e8f0
 
-a
+a, input, button, select, textarea
     user-select: none
-    transition: all 0.15s ease
+    transition: all 0.15s ease-in-out
 
     &:hover
         opacity: 0.8
@@ -22,3 +22,6 @@ a
         outline: none
         opacity: 0.5
         transition: none
+
+textarea
+    transition: all 0.05s linear

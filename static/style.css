@@ -17,17 +17,21 @@
   color: #e2e8f0;
 }
 
-a {
+a, input, button, select, textarea {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  transition: all 0.15s ease;
+  transition: all 0.15s ease-in-out;
 }
-a:hover {
+a:hover, input:hover, button:hover, select:hover, textarea:hover {
   opacity: 0.8;
 }
-a:focus-visible {
+a:focus-visible, input:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: none;
   opacity: 0.5;
   transition: none;
+}
+
+textarea {
+  transition: all 0.05s linear;
 }/*# sourceMappingURL=style.css.map */
