@@ -1,0 +1,15 @@
+{% extends "main.html" %} {% block content %}
+
+<h1 class="text-4xl">Home</h1>
+
+<div class="pt-8">
+  {% for room in rooms %}
+  <p>
+    <span>From <strong>{{room.host.username}}</strong></span>:
+    <a href="{% url 'room' room.id %}" class="text-purple-400">{{room.name}} </a
+    >, {{room.description}}
+  </p>
+  {% endfor %}
+</div>
+
+{% endblock %}
