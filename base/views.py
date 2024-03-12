@@ -4,11 +4,11 @@ from .models import Room
 
 def home(request):
     rooms = Room.objects.all()
-    context = {"rooms": rooms}
+    context = {"rooms": rooms, "title": "Home"}
     return render(request, "base/home.html", context)
 
 
 def room(request, id):
     room = Room.objects.get(id=id)
-    context = {"room": room}
+    context = {"room": room, "title": f"{room.name}"}
     return render(request, "base/room.html", context)

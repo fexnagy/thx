@@ -1,6 +1,11 @@
 {% extends "main.html" %} {% block content %}
 
-<h1>{{room.name}} - <em class="opacity-50">{{room.description}}</em></h1>
+<h1 class="text-5xl pb-12">Room</h1>
+
+<div>
+  <p>{{room.name}}<em class="text-slate-400"> - {{room.description}}</em></p>
+</div>
+
 <!-- TODO: Display messages that belong to the room (continue tutorial at timestamp 1:38:50 (CRUD MODEL STARTS SOON)) -->
 
 {% endblock %}
