@@ -5,10 +5,19 @@
 <div>
   {% for room in rooms %}
   <p class="pb-4">
-    <span>Created by <strong>{{room.host.username}}</strong> - </span>
+    <a href="{% url 'edit' room.id %}" class="text-orange-200">Edit</a>
+    <span
+      >Created by <strong>{{room.host.username}}</strong> on
+      <strong>{{room.created|date:"F d"}}</strong> -
+    </span>
     <a href="{% url 'room' room.id %}" class="text-orange-200">{{room.name}}</a>
   </p>
   {% endfor %}
+  <button
+    class="bg-slate-800 hover:text-orange-200 font-bold py-2 px-4 mt-4 rounded"
+  >
+    <a href="{% url 'create' %}">Create Room</a>
+  </button>
 </div>
 
 {% endblock %}

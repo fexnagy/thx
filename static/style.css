@@ -19,16 +19,16 @@ p {
   font-size: 1.05rem;
 }
 
-a {
+a, button {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   transition: all 0.12s ease-in-out;
 }
-a:hover {
+a:hover, button:hover {
   opacity: 0.75;
 }
-a:focus-visible {
+a:focus-visible, button:focus-visible {
   outline: none;
   opacity: 0.5;
   transition: none;
