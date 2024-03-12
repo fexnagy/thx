@@ -6,6 +6,7 @@
   {% for room in rooms %}
   <p class="pb-4">
     <a href="{% url 'edit' room.id %}" class="text-orange-200">Edit</a>
+    <a href="{% url 'delete' room.id %}" class="text-orange-200">Delete</a>
     <span
       >Created by <strong>{{room.host.username}}</strong> on
       <strong>{{room.created|date:"F d"}}</strong> -
