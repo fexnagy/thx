@@ -4,7 +4,11 @@ from .forms import RoomForm
 
 
 def home(request):
-    rooms = Room.objects.all()
+    q = request.GET.get("q") if request.GET.get("q") != None else ""
+    
+    rooms = Room.objects.filter(name__icontains=q)
+
+    # rooms = Room.objects.all()
     context = {"rooms": rooms, "title": "Home"}
     return render(request, "base/home.html", context)
 
