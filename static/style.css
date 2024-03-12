@@ -15,16 +15,16 @@
   color: #e2e8f0;
 }
 
-a, button {
+a, button, input, textarea {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   transition: all 0.12s ease-in-out;
 }
-a:hover, button:hover {
+a:hover, button:hover, input:hover, textarea:hover {
   opacity: 0.75;
 }
-a:focus-visible, button:focus-visible {
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: none;
   opacity: 0.5;
   transition: none;
