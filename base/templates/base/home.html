@@ -2,6 +2,7 @@
 
 <h1 class="text-5xl pb-12">Home</h1>
 
+<!-- Results and create btn -->
 <div class="flex flex-col justify-center align-baseline">
   <div class="flex justify-between items-center mb-6">
     <p>Found {{room_count}} result</p>
@@ -12,6 +13,7 @@
     </button>
   </div>
 
+  <!-- Room cards -->
   {% for room in rooms %}
   <div class="my-2 bg-slate-800 rounded-xl p-4 flex justify-between w-[40rem]">
     <div class="w-72">
