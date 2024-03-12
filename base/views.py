@@ -10,5 +10,5 @@ def home(request):
 
 def room(request, id):
     room = Room.objects.get(id=id)
-    context = {"room": room, "title": f"{room.name}"}
+    context = {"room": room, "title": room.name}
     return render(request, "base/room.html", context)
