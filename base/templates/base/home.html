@@ -2,24 +2,31 @@
 
 <h1 class="text-5xl pb-12">Home</h1>
 
-<div>
-  <p class="pb-8">Found {{room_count}} result</p>
+<div class="flex flex-col justify-center align-baseline">
+  <div class="flex justify-between items-center mb-6">
+    <p>Found {{room_count}} result</p>
+    <button
+      class="bg-slate-800 hover:text-orange-200 font-bold py-2 px-4 rounded"
+    >
+      <a href="{% url 'create' %}">Create Room</a>
+    </button>
+  </div>
+
   {% for room in rooms %}
-  <p class="pb-4">
-    <a href="{% url 'edit' room.id %}" class="text-orange-200">Edit</a>
-    <a href="{% url 'delete' room.id %}" class="text-orange-200">Delete</a>
-    <span
-      >Created by <strong>{{room.host.username}}</strong> on
-      <strong>{{room.created|date:"F d"}}</strong> -
-    </span>
-    <a href="{% url 'room' room.id %}" class="text-orange-200">{{room.name}}</a>
-  </p>
+  <div class="my-2 bg-slate-800 rounded-xl p-4 flex justify-between w-[40rem]">
+    <div class="w-72">
+      <a href="{% url 'room' room.id %}" class="text-orange-200">{{room.name}}</a>
+    </div>
+    <div class="text-slate-400 w-72 text-center">
+      <strong>@{{room.host.username}}</strong> -
+      <strong>{{room.created|date:"F d"}}</strong>
+    </div>
+    <div class="w-72 text-end">
+      <a href="{% url 'edit' room.id %}" class="text-orange-200 mr-4">Edit</a>
+      <a href="{% url 'delete' room.id %}" class="text-red-300">Delete</a>
+    </div>
+  </div>
   {% endfor %}
-  <button
-    class="bg-slate-800 hover:text-orange-200 font-bold py-2 px-4 mt-4 rounded"
-  >
-    <a href="{% url 'create' %}">Create Room</a>
-  </button>
 </div>
 
 {% endblock %}
