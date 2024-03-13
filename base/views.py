@@ -8,9 +8,8 @@ def home(request):
     q = request.GET.get("q") if request.GET.get("q") != None else ""
 
     rooms = Room.objects.filter(
-        Q(name__icontains=q)
-        | Q(description__icontains=q)
-        | Q(host__username__icontains=q)
+        Q(name_client__icontains=q)
+        | Q(comment__icontains=q)
     )
 
     room_count = rooms.count()
@@ -20,11 +19,11 @@ def home(request):
 
 def room(request, id):
     room = Room.objects.get(id=id)
-    context = {"room": room, "title": room.name}
+    context = {"room": room, "title": room.name_client}
     return render(request, "base/room.html", context)
 
 
-def createRoom(request):
+def submitRoom(request):
     form = RoomForm()
 
     # Save to the database
@@ -34,7 +33,7 @@ def createRoom(request):
             form.save()
             return redirect("home")
 
-    context = {"form": form, "title": "Create"}
+    context = {"form": form, "title": "Submit"}
     return render(request, "base/form.html", context)
 
 

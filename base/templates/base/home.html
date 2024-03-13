@@ -2,14 +2,14 @@
 
 <h1 class="text-5xl pb-12">Home</h1>
 
-<!-- Results and create btn -->
+<!-- Results and submit btn -->
 <div class="flex flex-col justify-center align-baseline">
   <div class="flex justify-between items-center mb-6">
     <p>Found {{room_count}} result</p>
     <button
       class="bg-slate-800 hover:text-emerald-200 font-bold py-2 px-4 rounded"
     >
-      <a href="{% url 'create' %}">Create Room</a>
+      <a href="{% url 'submit' %}">Submit Form</a>
     </button>
   </div>
 
@@ -17,11 +17,10 @@
   {% for room in rooms %}
   <div class="my-2 bg-slate-800 rounded-xl p-4 flex justify-between w-[40rem]">
     <div class="w-72">
-      <a href="{% url 'room' room.id %}" class="text-emerald-200">{{room.name}}</a>
+      <a href="{% url 'room' room.id %}" class="text-emerald-200">View</a>
     </div>
     <div class="text-slate-400 w-72 text-center">
-      <strong>@{{room.host.username}}</strong> -
-      <strong>{{room.created|date:"F d"}}</strong>
+      {{room.name_client}}, {{room.created|date:"F d"}}th
     </div>
     <div class="w-72 text-end">
       <a href="{% url 'edit' room.id %}" class="text-emerald-200 mr-4">Edit</a>

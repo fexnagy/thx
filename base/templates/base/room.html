@@ -1,8 +1,26 @@
 {% extends "main.html" %} {% block content %}
 
-<h1 class="text-5xl pb-12">{{room.name}}</h1>
+<h1 class="text-5xl pb-12">View <span class="text-emerald-200">Form</span></h1>
 
-<p class="text-slate-400 italic">{{room.description}}</p>
+<div class="mb-6 text-lg mt-4 bg-slate-800 p-8 rounded-xl">
+  <p class="text-sm text-slate-400 italic text-end">
+    Submitted on
+    <span class="text-slate-400">{{room.created|date:"F d"}}th</span>
+  </p>
+  <p class="pb-8 -mt-6">
+    Country - <span class="text-slate-400">{{room.country}}</span>
+  </p>
+  <p class="pb-8">
+    Client name - <span class="text-slate-400">{{room.name_client}}</span>
+  </p>
+  <p class="pb-8">
+    Client advertiser - <span class="text-slate-400">{{room.name_advertiser}}</span>
+  </p>
+  <p class="pb-8">
+    Comment - <span class="text-slate-400">{{room.comment}}</span>
+  </p>
+  <p class="pb-8">File - <span class="text-slate-400">{{room.file}}</span></p>
+</div>
 
 <!-- TODO: Display messages that belong to the room -->
 
