@@ -5,7 +5,7 @@
   {{title}} <span class="text-emerald-200">Form</span>
 </h1>
 
-<div class="mt-4">
+<div class="mt-4 w-[40rem]">
   <form method="POST" action="" class="bg-slate-800 p-8 rounded-xl">
     {% csrf_token %} {{form}} <input type="submit" {% if title == "Edit" %}
     value="Save" {% else %} value="{{title}}" {% endif %} class="bg-slate-700
