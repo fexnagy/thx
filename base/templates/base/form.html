@@ -1,12 +1,12 @@
 {% extends "main.html" %} {% block content %}
 
 <!-- Dynamic header based on the view -->
-<h1 class="text-5xl pb-12">
+<h1 class="text-4xl pb-6 md:text-5xl md:pb-12">
   {{title}} <span class="text-emerald-200">Form</span>
 </h1>
 
-<div class="mt-4 w-[40rem]">
-  <form method="POST" action="" class="bg-slate-800 p-8 rounded-xl">
+<div class="bg-slate-800 mt-4 p-8 md:rounded-xl w-full md:w-[40rem]">
+  <form method="POST" action="">
     {% csrf_token %} {{form}} <input type="submit" {% if title == "Edit" %}
     value="Save" {% else %} value="{{title}}" {% endif %} class="bg-slate-700
     hover:text-emerald-200 hover:cursor-pointer font-bold py-2 px-4 rounded" />
