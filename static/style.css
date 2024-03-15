@@ -49,4 +49,10 @@ form textarea {
   resize: none;
   transition: all 0.08s linear;
   height: 6rem;
+}
+form.disabled input, form.disabled textarea, form.disabled select {
+  cursor: not-allowed;
+}
+form.disabled input:hover, form.disabled textarea:hover, form.disabled select:hover {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

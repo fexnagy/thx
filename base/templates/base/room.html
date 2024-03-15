@@ -1,25 +1,11 @@
 {% extends "main.html" %} {% block content %}
 
-<h1 class="text-4xl pb-6 md:text-5xl md:pb-12">View <span class="text-emerald-200">Form</span></h1>
+<h1 class="text-4xl pb-6 md:text-5xl md:pb-12">
+  {{title}}<span class="text-emerald-200"> {{room.name_client}}</span>
+</h1>
 
-<div
-  class="mb-6 text-lg mt-4 bg-slate-800 p-8 md:rounded-xl w-full md:w-[40rem]"
->
-  <p class="text-sm text-slate-400 italic text-end invisible md:visible">
-    Submitted on
-    <span class="text-slate-400">{{room.created|date:"F d"}}th</span>
-  </p>
-  <p class="pb-8 -mt-6">
-    Country - <span class="text-slate-400">{{room.country}}</span>
-  </p>
-  <p class="pb-8">
-    Client name - <span class="text-slate-400">{{room.name_client}}</span>
-  </p>
-  <p class="pb-8">
-    Client advertiser -
-    <span class="text-slate-400">{{room.name_advertiser}}</span>
-  </p>
-  <p>Comment - <span class="text-slate-400">{{room.comment}}</span></p>
+<div class="bg-slate-800 mt-4 p-8 md:rounded-xl w-full md:w-[40rem]">
+  <form method="#" action="" class="disabled">{% csrf_token %} {{form}}</form>
 </div>
 
 <!-- TODO: Display messages that belong to the room -->

@@ -30,6 +30,7 @@ form
     label
         font-weight: bold
         margin-bottom: 0.5rem
+
     input, textarea, select
         background-color: #334155
         color: #e2e8f0
@@ -40,3 +41,10 @@ form
         resize: none
         transition: all 0.08s linear
         height: 6rem
+
+    &.disabled
+        input, textarea, select
+            cursor: not-allowed
+
+            &:hover
+                opacity: 1

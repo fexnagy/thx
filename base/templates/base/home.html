@@ -1,24 +1,25 @@
 {% extends "main.html" %} {% block content %}
 
-<h1 class="text-4xl pb-6 md:text-5xl md:pb-12">Home</h1>
+<h1 class="text-4xl pb-6 md:text-5xl md:pb-12">
+  {{title}}<span class="text-emerald-200"> Page</span>
+</h1>
 
-<div class="mb-6 text-lg mt-4 p-8 md:rounded-xl w-full lg:w-[60rem]">
+<div class="mb-6 text-lg p-8 md:rounded-xl w-full lg:w-[60rem] -mt-4">
   <!-- Results and submit btn -->
   <div class="flex flex-col justify-center align-baseline">
     <div class="flex justify-between items-center mb-6">
-      <p>Found {{room_count}} result</p>
-      <button
-        class="bg-slate-800 hover:text-emerald-200 font-bold py-2 px-4 rounded"
+      <p>Found {{room_count}} result{% if room_count != 1 %}s{% endif %}</p>
+      <a
+        href="{% url 'submit' %}"
+        class="bg-slate-800 hover:text-emerald-200 hover:cursor-pointer font-bold py-2 px-4 rounded"
       >
-        <a href="{% url 'submit' %}">Submit Form</a>
-      </button>
+        Submit Form
+      </a>
     </div>
 
     <!-- Room cards -->
     {% for room in rooms %}
-    <div
-      class="my-2 bg-slate-800 rounded-xl p-4 flex justify-between"
-    >
+    <div class="my-2 bg-slate-800 rounded-xl p-4 flex justify-between">
       <div class="w-72">
         <a href="{% url 'room' room.id %}" class="text-emerald-200">View</a>
       </div>

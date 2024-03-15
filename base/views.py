@@ -1,16 +1,13 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from .models import Room
-from .forms import RoomForm
+from .forms import RoomForm, ViewRoomForm
 
 
 def home(request):
     q = request.GET.get("q") if request.GET.get("q") != None else ""
 
-    rooms = Room.objects.filter(
-        Q(name_client__icontains=q)
-        | Q(comment__icontains=q)
-    )
+    rooms = Room.objects.filter(Q(name_client__icontains=q) | Q(comment__icontains=q))
 
     room_count = rooms.count()
     context = {"rooms": rooms, "room_count": room_count, "title": "Home"}
@@ -19,7 +16,8 @@ def home(request):
 
 def room(request, id):
     room = Room.objects.get(id=id)
-    context = {"room": room, "title": room.name_client}
+    form = ViewRoomForm(instance=room)
+    context = {"room": room, "form": form, "title": "View"}
     return render(request, "base/room.html", context)
 
 
